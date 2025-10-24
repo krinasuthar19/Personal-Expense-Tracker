@@ -1,0 +1,214 @@
+/* ==================================== */
+/* 1. Global & Utility Styles */
+/* ==================================== */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+body {
+    background-color: #f8f9fa; /* Lighter background for a cleaner look */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.feather {
+    width: 20px;
+    height: 20px;
+    stroke: #4d4d4d;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    vertical-align: text-bottom;
+}
+
+/* ==================================== */
+/* 2. Sidebar and Wrapper */
+/* ==================================== */
+
+#wrapper {
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+    width: 15rem;
+    background-color: #ffffff; /* Light sidebar */
+    border-right: 1px solid #eee; /* Subtle separator */
+}
+
+/* Sidebar Headings, User Info & Links */
+.user {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+.user img {
+    padding: 0;
+    width: 80px; /* Sizing for cleaner profile image */
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+.user h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.user p {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.75rem; /* Smaller, more professional font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.list-group {
+    border-radius: 0; /* Remove default Bootstrap rounding */
+}
+
+.list-group-item {
+    border: none;
+    padding: 0.75rem 1.25rem;
+    color: #333;
+    transition: background-color 0.15s, color 0.15s;
+    background-color: #ffffff; /* Explicitly white */
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    color: #007bff; /* Hover effect */
+}
+
+.sidebar-active {
+    background-color: #e9ecef !important; /* Subtle gray background for active link */
+    color: #47a04b !important;
+    font-weight: bold !important;
+    border-left: 3px solid #47a04b; /* Highlight bar */
+    padding-left: calc(1.25rem - 3px); /* Adjust padding due to border */
+}
+
+.sidebar-active .feather {
+    stroke: #47a04b !important;
+}
+
+/* Page Content */
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+/* Top Navigation */
+.navbar {
+    border-bottom: 1px solid #eee;
+}
+
+.toggler {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.toggler:hover {
+    background-color: #f8f9fa;
+}
+
+
+/* ==================================== */
+/* 3. Media Queries (Responsiveness) */
+/* ==================================== */
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+    .container-fluid {
+        /* Reset for desktop view as you wanted margin-right: 20px; */
+        margin-right: 0 !important;
+        padding-right: 1.5rem !important; 
+    }
+}
+
+
+/* ==================================== */
+/* 4. Dashboard Cards (Summary/Gradient) */
+/* ==================================== */
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 0.5rem; /* Smoother, modern corners */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card .card-footer a {
+    color: #fff; /* Footer link should be white on gradient cards */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.card .card-footer a:hover {
+    opacity: 1;
+}
+
+/* Chart Card Styling */
+.card-chart {
+    min-height: 400px;
+}
+
+/* Custom Gradients (Kept your existing gradients, but optimized structure) */
+/* Apply these classes to your dashboard cards in index.php */
+
+.card-gradient-1 {
+    border: none;
+    color: #ffffff;
+    background: linear-gradient(to right, #93291e, #ed213a); /* Expenses (Red) */
+}
+.card-gradient-2 {
+    border: none;
+    color: #ffffff;
+    background: linear-gradient(to right, #267871, #136a8a); /* Income (Teal/Blue) */
+}
+.card-gradient-3 {
+    border: none;
+    color: #ffffff;
+    background: linear-gradient(to right, #753a88, #cc2b5e); /* Budget (Purple/Pink) */
+}
+
+/* The rest of your gradients for category charts */
+.card-gradient-4 { border: none; color: #ffffff; background: linear-gradient(to right, #0083b0, #00b4db); }
+.card-gradient-5 { border: none; color: #ffffff; background: linear-gradient(to right, #e44d26, #f16529); }
+.card-gradient-6 { border: none; color: #ffffff; background: linear-gradient(to right, #4e4376, #2b5876); }
+.card-gradient-7 { border: none; color: #ffffff; background: linear-gradient(to right, #a044ff, #6a3093); }
+.card-gradient-8 { border: none; color: #ffffff; background: linear-gradient(to right, #f15f79, #b24592); }
+.card-gradient-9 { border: none; color: #ffffff; background: linear-gradient(to right, #4b134f, #c94b4b); }
+.card-gradient-10 { border: none; color: #ffffff; background: linear-gradient(to right, #1d2671, #c33764); }
+.card-gradient-11 { border: none; color: #ffffff; background: linear-gradient(to right, #f45c43, #eb3349); }
+.card-gradient-12 { border: none; color: #ffffff; background: linear-gradient(to right, #859398, #283048); }
+
